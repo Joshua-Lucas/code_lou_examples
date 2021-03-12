@@ -1,43 +1,40 @@
 
-
-
-// Example changing display property
+// This example changes the html display property, it works but I wouldn't use this becuse you will have issues with media queries.
 var menuButton = document.getElementById("menuButton");
 
-function openNavMenu(){
-    menuButton.addEventListener('click', function openAndCloseMenu(){
-        // when clicked needs to display hidden nav menu.
-        let navMenu = document.getElementById('nav-menu');
+function openNavMenuByStyle(){
+	menuButton.addEventListener('click', function openAndCloseMenu(){
+		
+		let navMenu = document.getElementById('nav-menu');
 
-        if (navMenu.style.display === "none"){
-            navMenu.style.display = "flex";
-        } else {
-            navMenu.style.display = "none";
-        }
+		if (navMenu.style.display === "none"){
+			navMenu.style.display = "flex";
+		} else {
+			navMenu.style.display = "none";
+		}
 
-    }) 
+	}) 
 }
 
-// openNavMenu();
 
-// Example changing class property
-function openNavMenuC(){
-    menuButton.addEventListener('click', function openAndCloseMenu(){
-        // when clicked needs to dchange class to be visable.
-        let navMenu = document.getElementById('nav-menu'); 
-        
-        if(navMenu.classList.contains('closedNav')) {
-            navMenu.classList.remove("closedNav")
-            navMenu.classList.add("openNav") 
-        } else {
-            navMenu.classList.remove("openNav")
-            navMenu.classList.add("closedNav")
 
-        }
+// This example adds and removes classes that will change the dsiplay of the nav menu. I SUGGEST THIS FUNCTION
+function openNavMenuByClass(){
+	menuButton.addEventListener('click', function openAndCloseMenu(){
+	   
+		let navMenu = document.getElementById('nav-menu'); 
+		
+		if(navMenu.classList.contains('closedNav')) {
+			navMenu.classList.remove("closedNav")
+			navMenu.classList.add("openNav") 
+		} else {
+			navMenu.classList.remove("openNav")
+			navMenu.classList.add("closedNav")
 
-    }) 
+		}
+
+	}) 
 }
 
-openNavMenuC();
-
-// on button click close nav menu
+// Make sure to call whatever function you choose to use here either openNavMenuByClass() or openNavMenuByStyle();
+openNavMenuByClass(); 
